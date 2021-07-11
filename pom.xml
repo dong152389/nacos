@@ -15,17 +15,21 @@
   ~ limitations under the License.
   -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>2.2.13.RELEASE</version>
+    </parent><!--<parent>
         <groupId>com.alibaba.nacos</groupId>
         <artifactId>nacos-all</artifactId>
         <version>1.4.1</version>
-    </parent>
+    </parent>-->
     <artifactId>nacos</artifactId>
     <packaging>jar</packaging>
-    <name>nacos ${project.version}</name>
+    <name>nacos</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <nacos.version>1.4.1</nacos.version>
@@ -59,10 +63,16 @@
         </dependency>
     </dependencies>
     <build>
+        <finalName>nacos-1.4.1</finalName>
         <plugins>
+
             <plugin>
+
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.alibaba.nacos.Nacos</mainClass>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>io.fabric8</groupId>
